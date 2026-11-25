@@ -1,0 +1,142 @@
+/* In-page bilingual translation styles for BiText: Web Translator */
+
+:root {
+  --bt-page-accent: #0F6E66;
+  --bt-page-trans: #235C56;
+  --bt-page-accent-dark: #55B8AA;
+  --bt-page-trans-dark: #9ED8CF;
+}
+
+:root[data-bt-accent="navy"] {
+  --bt-page-accent: #1D4E78;
+  --bt-page-trans: #244B6E;
+  --bt-page-accent-dark: #6EA8DC;
+  --bt-page-trans-dark: #A9CBEB;
+}
+
+:root[data-bt-accent="indigo"] {
+  --bt-page-accent: #2E4DA7;
+  --bt-page-trans: #30488C;
+  --bt-page-accent-dark: #82A0F8;
+  --bt-page-trans-dark: #B7C8FA;
+}
+
+:root[data-bt-accent="petrol"] {
+  --bt-page-accent: #166075;
+  --bt-page-trans: #1D5869;
+  --bt-page-accent-dark: #61B6CC;
+  --bt-page-trans-dark: #A4D8E6;
+}
+
+:root[data-bt-accent="brick"] {
+  --bt-page-accent: #A63D33;
+  --bt-page-trans: #8A352D;
+  --bt-page-accent-dark: #E58076;
+  --bt-page-trans-dark: #F0AAA3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bt-page-accent-resolved: var(--bt-page-accent-dark);
+    --bt-page-trans-resolved: var(--bt-page-trans-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bt-page-accent-resolved: var(--bt-page-accent);
+    --bt-page-trans-resolved: var(--bt-page-trans);
+  }
+}
+
+@supports (color: light-dark(white, black)) {
+  font.bt-target[data-bt-target] {
+    --bt-page-accent-resolved: light-dark(var(--bt-page-accent), var(--bt-page-accent-dark));
+    --bt-page-trans-resolved: light-dark(var(--bt-page-trans), var(--bt-page-trans-dark));
+  }
+}
+
+/* Leave one blank line between the original and the translation, like the author's own paragraph gap. */
+font.bt-target[data-bt-target] {
+  display: block;
+  margin-block-start: 1lh;
+  font: inherit;
+  color: var(--bt-page-trans-resolved, inherit);
+  white-space: pre-line;
+  box-sizing: border-box;
+}
+
+/* Style 1: Left accent bar (default) */
+:root:not([data-bt-style]) font.bt-target[data-bt-target],
+:root[data-bt-style="bar"] font.bt-target[data-bt-target] {
+  border-inline-start: 2.5px solid var(--bt-page-accent-resolved, currentColor);
+  padding-inline-start: 0.65em;
+}
+
+/* Style 2: Dotted underline */
+:root[data-bt-style="dotted"] font.bt-target[data-bt-target] {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--bt-page-accent-resolved, currentColor);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Style 3: Soft highlight tint */
+:root[data-bt-style="tint"] font.bt-target[data-bt-target] {
+  background-color: color-mix(in oklab, var(--bt-page-accent-resolved, currentColor) 10%, transparent);
+  padding: 0.25em 0.55em;
+  border-radius: 6px;
+}
+
+/* Style 4: Clean muted text only */
+:root[data-bt-style="clean"] font.bt-target[data-bt-target] {
+  color: inherit;
+  opacity: 0.86;
+}
+
+/* In translation-only mode, remove extra spacing & decorative indent so translated text reads like native page copy */
+:root[data-bt-display="translation-only"] font.bt-target[data-bt-target] {
+  margin-block-start: 0;
+  border-inline-start: 0;
+  padding-inline-start: 0;
+  background-color: transparent;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  opacity: 1;
+}
+
+[data-bt-hidden-original="true"] {
+  display: none !important;
+}
+
+/* Preserve flex & grid layouts */
+:has(> font[data-bt-layout="flex"].bt-target) {
+  flex-wrap: wrap !important;
+}
+font.bt-target[data-bt-layout="flex"] {
+  flex: 0 0 100% !important;
+  min-width: 0;
+}
+font.bt-target[data-bt-layout="grid"] {
+  grid-column: 1 / -1 !important;
+}
+
+/* Subtle per-paragraph retry button when a single item fails */
+button.bt-retry[data-bt-ui] {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-block-start: 0.35em;
+  padding: 2px 9px;
+  border: 1px solid var(--bt-page-accent-resolved, #0F6E66);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bt-page-accent-resolved, #0F6E66);
+  font: 500 12px/1.4 system-ui, sans-serif;
+  cursor: pointer;
+}
+button.bt-retry[data-bt-ui]:hover {
+  background: color-mix(in oklab, var(--bt-page-accent-resolved, #0F6E66) 12%, transparent);
+}

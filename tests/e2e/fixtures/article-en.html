@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Life in the Tide Pools — The Naturalist</title>
+    <style>
+      body { font-family: Georgia, serif; max-width: 720px; margin: 40px auto; padding: 0 24px; line-height: 1.7; color: #222; background: #fffdf8; }
+      nav { display: flex; gap: 16px; margin-bottom: 24px; font-family: system-ui, sans-serif; }
+      nav a { color: #0f6e66; text-decoration: none; font-weight: 600; }
+      .grid-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+      pre { background: #f2f2f2; padding: 12px; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a id="nav-home" href="#home">Home</a>
+      <a id="nav-guides" href="#guides">Field Guides</a>
+      <button id="nav-sub" type="button">Subscribe</button>
+    </nav>
+    <article>
+      <h1 id="title">Life in the Tide Pools</h1>
+      <p id="p1">At low tide, a small pool forms between the rocks. The water stays cool even when the sun is high.</p>
+      <p id="p2">Read the <a id="inline-link" href="https://example.com/guide" target="_blank"><strong>coastal guide</strong></a> and check <code>tide_level.json</code> for details.</p>
+      <p id="p3" class="notranslate">DO_NOT_TRANSLATE_TOKEN</p>
+      <pre id="code-block">const tide = 'low';</pre>
+      <div class="grid-box">
+        <div id="grid-card">Tiny animals wait for waves to return along the coast.</div>
+      </div>
+    </article>
+  </body>
+</html>

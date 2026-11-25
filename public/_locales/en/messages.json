@@ -1,0 +1,18 @@
+{
+  "extName": {
+    "message": "BiText: Web Translator",
+    "description": "Extension name"
+  },
+  "extShortName": {
+    "message": "BiText",
+    "description": "Short name for toolbar"
+  },
+  "extDescription": {
+    "message": "Bilingual web page and selection translator powered by Chrome built-in AI, OpenAI, Anthropic, Gemini, or local Ollama models.",
+    "description": "Extension description"
+  },
+  "cmdTogglePage": {
+    "message": "Translate this page or show original",
+    "description": "Keyboard shortcut command description"
+  }
+}

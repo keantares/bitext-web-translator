@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">BiText: Web Translator</title>
+  <rect x="1.5" y="1.5" width="125" height="125" rx="29" fill="#0F6E66" stroke="#448E88" stroke-width="3"/>
+  <g fill="none" stroke="#ffffff" stroke-width="8.3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m37.5 19.8 4.9 6.2 M19.8 33.8h43.7"/>
+    <path d="M53.8 34.8c-3.5 15.1-16.6 27.5-33.2 34.1 M29.3 43.3c6.2 9.3 16.1 18.2 29.7 23.5"/>
+  </g>
+  <path d="M60.5 103.7 77.2 60.2c.8-2.1 2.3-3.2 4.6-3.2h4.3c2.2 0 3.8 1.1 4.6 3.2l17.1 43.5c.6 1.5-.2 2.4-1.8 2.4h-6.2c-1.5 0-2.2-.6-2.7-2L93.2 94H74.4l-3.7 10.1c-.5 1.4-1.2 2-2.8 2h-5.6c-1.6 0-2.4-.9-1.8-2.4Zm17-18.1h12.6l-6.4-17.5Z" fill="#ffffff" fill-rule="evenodd"/>
+  <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 26h12a13 13 0 0 1 13 13v5m-6-5 6 6 6-6"/>
+    <path d="M50 101H38a13 13 0 0 1-13-13v-5m-6 5 6-6 6 6"/>
+  </g>
+</svg>

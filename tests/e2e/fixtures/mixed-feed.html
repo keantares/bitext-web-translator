@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <title>首頁 / 社群動態</title>
+    <style>
+      body { font: 15px/20px system-ui, sans-serif; max-width: 600px; margin: 24px auto; padding: 0 16px; }
+      nav { display: flex; gap: 16px; margin-bottom: 16px; }
+      article { border-bottom: 1px solid #ddd; padding: 12px 0; }
+      aside { margin-top: 24px; }
+    </style>
+  </head>
+  <body>
+    <nav aria-label="主要">
+      <a href="/home">首頁</a>
+      <a href="/explore">探索</a>
+      <a href="/notifications">通知</a>
+    </nav>
+    <main id="feed">
+      <article id="post-en">
+        <div class="author">
+          <a href="/sciencedaily"><div id="author-name">The Daily Science Report</div></a>
+          <a href="/sciencedaily"><span id="author-handle">@sciencedaily</span></a>
+          <span>·</span>
+          <a href="/sciencedaily/status/1"><time>2h</time></a>
+        </div>
+        <div id="en-text">We just shipped a faster way to search your notes.<br /><br />Try it today and tell us what you think.</div>
+        <div id="actions"><button type="button">Like</button> <a href="/sciencedaily/status/1">Show more</a></div>
+      </article>
+      <article id="post-cn">
+        <div id="cn-text">如果你正用 Orbit 4 Pro，强烈建议给你的 Agent 装一个 Nimbus 官方刚开源的工具</div>
+      </article>
+      <article id="post-tw">
+        <div id="tw-text">這是一則繁體中文貼文，同樣不需要翻譯。</div>
+      </article>
+      <article id="post-ja-tag">
+        <div id="ja-tag-text" lang="ja">收藏收藏</div>
+      </article>
+      <p id="address">github.com/example/repo</p>
+      <!--feed-marker-->
+    </main>
+    <aside aria-label="趨勢">
+      <div id="trend-title">台灣的趨勢</div>
+      <div role="link" tabindex="0"><div id="trend">Trending in Technology right now</div></div>
+    </aside>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "extName": {
+    "message": "BiText：網頁翻譯器",
+    "description": "Extension name in Traditional Chinese (Taiwan)"
+  },
+  "extShortName": {
+    "message": "BiText",
+    "description": "Short name for toolbar"
+  },
+  "extDescription": {
+    "message": "支援雙語對照與框選翻譯的網頁翻譯器，可自由選擇 Chrome 內建離線翻譯、OpenAI、Anthropic、Gemini 或本機 Ollama 模型。",
+    "description": "Extension description in Traditional Chinese (Taiwan)"
+  },
+  "cmdTogglePage": {
+    "message": "翻譯這個網頁或顯示原文",
+    "description": "Keyboard shortcut command description"
+  }
+}

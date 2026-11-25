@@ -1,0 +1,46 @@
+{
+  "name": "bitext-web-translator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "BiText: Web Translator — Open-source bilingual web translation extension with Chrome built-in, Cloud AI, and Local Ollama/LM Studio support.",
+  "license": "MIT",
+  "author": "keantares",
+  "homepage": "https://github.com/keantares/bitext-web-translator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keantares/bitext-web-translator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keantares/bitext-web-translator/issues"
+  },
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox --mv3",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox --mv3",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox --mv3",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --configLoader native",
+    "test:watch": "vitest --configLoader native",
+    "test:e2e": "playwright test",
+    "icons": "node scripts/generate-icons.mjs",
+    "postinstall": "wxt prepare"
+  },
+  "dependencies": {
+    "opencc-js": "1.4.2",
+    "preact": "11.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@preact/preset-vite": "2.10.6",
+    "@tailwindcss/vite": "4.3.5",
+    "happy-dom": "21.0.4",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.5",
+    "typescript": "7.0.2",
+    "vitest": "5.1.1",
+    "wxt": "0.21.5"
+  }
+}

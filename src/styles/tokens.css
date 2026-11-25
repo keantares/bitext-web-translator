@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   BiText: Web Translator — Editorial Reader Design Tokens (Style B)
+   5 Accent Palettes x 2 Paper Tones x Light/Dark/System + Forced Colors
+   ============================================================================ */
+
+:root {
+  /* Mandatory base declaration: adapts native UI to system preference by default */
+  color-scheme: light dark;
+
+  /* Reflect explicit user override from <meta name="color-scheme"> back into CSS */
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
+
+  /* Typography */
+  --bt-font-sans: "Segoe UI Variable Text", "Segoe UI", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei UI", "Noto Sans TC", system-ui, sans-serif;
+  --bt-font-serif: Georgia, "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --bt-font-mono: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
+
+  /* Radii */
+  --bt-radius-sm: 8px;
+  --bt-radius-md: 10px;
+  --bt-radius-lg: 12px;
+  --bt-radius-xl: 16px;
+  --bt-radius-pill: 999px;
+
+  /* Default paper tone: Warm Ivory (warm) */
+  --bt-bg-light: #F1EBDF;
+  --bt-bg-dark: #141210;
+  --bt-surface-light: #FFFDF8;
+  --bt-surface-dark: #1F1C18;
+  --bt-surface-subtle-light: #F6F0E3;
+  --bt-surface-subtle-dark: #28241E;
+  --bt-border-light: #E4D9C3;
+  --bt-border-dark: #3B352B;
+  --bt-border-strong-light: #CFC1A6;
+  --bt-border-strong-dark: #544B3C;
+  --bt-text-light: #24211C;
+  --bt-text-dark: #EEE6D8;
+  --bt-text-muted-light: #6B6355;
+  --bt-text-muted-dark: #ADA493;
+  --bt-shadow-light: 0 10px 28px rgba(72, 56, 24, 0.10), 0 1px 3px rgba(72, 56, 24, 0.07);
+  --bt-shadow-dark: 0 12px 30px rgba(0, 0, 0, 0.50);
+
+  /* Default accent: Forest Teal (teal) */
+  --bt-accent-light: #0F6E66;
+  --bt-accent-dark: #55B8AA;
+  --bt-on-accent-light: #FFFDF8;
+  --bt-on-accent-dark: #0D201E;
+  --bt-trans-light: #235C56;
+  --bt-trans-dark: #9ED8CF;
+
+  /* Status colors (paired with icons/text, never color alone) */
+  --bt-success-light: #157F47;
+  --bt-success-dark: #4CD48B;
+  --bt-warning-light: #9A5B00;
+  --bt-warning-dark: #F2B85B;
+  --bt-danger-light: #B42318;
+  --bt-danger-dark: #F97066;
+
+  /* Scrollbar tokens */
+  --bt-scroll-track-light: #EBE4D6;
+  --bt-scroll-track-dark: #1A1714;
+  --bt-scroll-thumb-light: #B8AC96;
+  --bt-scroll-thumb-dark: #524A3E;
+
+  /* Fallback assignments for browsers without light-dark() */
+  --bt-bg: var(--bt-bg-light);
+  --bt-surface: var(--bt-surface-light);
+  --bt-surface-subtle: var(--bt-surface-subtle-light);
+  --bt-border: var(--bt-border-light);
+  --bt-border-strong: var(--bt-border-strong-light);
+  --bt-text: var(--bt-text-light);
+  --bt-text-muted: var(--bt-text-muted-light);
+  --bt-accent: var(--bt-accent-light);
+  --bt-on-accent: var(--bt-on-accent-light);
+  --bt-trans: var(--bt-trans-light);
+  --bt-success: var(--bt-success-light);
+  --bt-warning: var(--bt-warning-light);
+  --bt-danger: var(--bt-danger-light);
+  --bt-scroll-track: var(--bt-scroll-track-light);
+  --bt-scroll-thumb: var(--bt-scroll-thumb-light);
+  --bt-shadow: var(--bt-shadow-light);
+
+  @media (prefers-color-scheme: dark) {
+    --bt-bg: var(--bt-bg-dark);
+    --bt-surface: var(--bt-surface-dark);
+    --bt-surface-subtle: var(--bt-surface-subtle-dark);
+    --bt-border: var(--bt-border-dark);
+    --bt-border-strong: var(--bt-border-strong-dark);
+    --bt-text: var(--bt-text-dark);
+    --bt-text-muted: var(--bt-text-muted-dark);
+    --bt-accent: var(--bt-accent-dark);
+    --bt-on-accent: var(--bt-on-accent-dark);
+    --bt-trans: var(--bt-trans-dark);
+    --bt-success: var(--bt-success-dark);
+    --bt-warning: var(--bt-warning-dark);
+    --bt-danger: var(--bt-danger-dark);
+    --bt-scroll-track: var(--bt-scroll-track-dark);
+    --bt-scroll-thumb: var(--bt-scroll-thumb-dark);
+    --bt-shadow: var(--bt-shadow-dark);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bt-bg: light-dark(var(--bt-bg-light), var(--bt-bg-dark));
+    --bt-surface: light-dark(var(--bt-surface-light), var(--bt-surface-dark));
+    --bt-surface-subtle: light-dark(var(--bt-surface-subtle-light), var(--bt-surface-subtle-dark));
+    --bt-border: light-dark(var(--bt-border-light), var(--bt-border-dark));
+    --bt-border-strong: light-dark(var(--bt-border-strong-light), var(--bt-border-strong-dark));
+    --bt-text: light-dark(var(--bt-text-light), var(--bt-text-dark));
+    --bt-text-muted: light-dark(var(--bt-text-muted-light), var(--bt-text-muted-dark));
+    --bt-accent: light-dark(var(--bt-accent-light), var(--bt-accent-dark));
+    --bt-on-accent: light-dark(var(--bt-on-accent-light), var(--bt-on-accent-dark));
+    --bt-trans: light-dark(var(--bt-trans-light), var(--bt-trans-dark));
+    --bt-success: light-dark(var(--bt-success-light), var(--bt-success-dark));
+    --bt-warning: light-dark(var(--bt-warning-light), var(--bt-warning-dark));
+    --bt-danger: light-dark(var(--bt-danger-light), var(--bt-danger-dark));
+    --bt-scroll-track: light-dark(var(--bt-scroll-track-light), var(--bt-scroll-track-dark));
+    --bt-scroll-thumb: light-dark(var(--bt-scroll-thumb-light), var(--bt-scroll-thumb-dark));
+  }
+
+  /* Dynamic tints mixed in oklab (safe in-gamut, avoids oklch neutral bug) */
+  --bt-accent-soft: color-mix(in oklab, var(--bt-accent) 11%, transparent);
+  --bt-accent-hover: color-mix(in oklab, var(--bt-accent) 88%, var(--bt-text));
+  --bt-danger-soft: color-mix(in oklab, var(--bt-danger) 12%, transparent);
+  --bt-success-soft: color-mix(in oklab, var(--bt-success) 14%, transparent);
+  --bt-warning-soft: color-mix(in oklab, var(--bt-warning) 14%, transparent);
+
+  accent-color: var(--bt-accent);
+  scrollbar-color: var(--bt-scroll-thumb) var(--bt-scroll-track);
+}
+
+/* Explicit shadow override when dark scheme is pinned via <meta> */
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  --bt-shadow: var(--bt-shadow-dark);
+}
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+  --bt-shadow: var(--bt-shadow-light);
+}
+
+/* Paper Tone Variant: Cool Crisp Paper */
+:root[data-paper="cool"] {
+  --bt-bg-light: #EAEFF5;
+  --bt-bg-dark: #0F1319;
+  --bt-surface-light: #FDFEFF;
+  --bt-surface-dark: #181D26;
+  --bt-surface-subtle-light: #F2F5F9;
+  --bt-surface-subtle-dark: #212834;
+  --bt-border-light: #D9E1EC;
+  --bt-border-dark: #303A4A;
+  --bt-border-strong-light: #BEC9DA;
+  --bt-border-strong-dark: #465369;
+  --bt-text-light: #1A212C;
+  --bt-text-dark: #E8EDF5;
+  --bt-text-muted-light: #5C687A;
+  --bt-text-muted-dark: #9CA8BC;
+  --bt-shadow-light: 0 10px 28px rgba(20, 38, 68, 0.09), 0 1px 3px rgba(20, 38, 68, 0.06);
+  --bt-shadow-dark: 0 12px 30px rgba(0, 0, 0, 0.54);
+  --bt-scroll-track-light: #E3E9F0;
+  --bt-scroll-track-dark: #141921;
+  --bt-scroll-thumb-light: #A5B2C4;
+  --bt-scroll-thumb-dark: #434F63;
+}
+
+/* Accent Palette Variants */
+:root[data-accent="navy"] {
+  --bt-accent-light: #1D4E78;
+  --bt-accent-dark: #6EA8DC;
+  --bt-on-accent-light: #FDFEFF;
+  --bt-on-accent-dark: #0B1926;
+  --bt-trans-light: #244B6E;
+  --bt-trans-dark: #A9CBEB;
+}
+
+:root[data-accent="indigo"] {
+  --bt-accent-light: #2E4DA7;
+  --bt-accent-dark: #82A0F8;
+  --bt-on-accent-light: #FDFEFF;
+  --bt-on-accent-dark: #0D1633;
+  --bt-trans-light: #30488C;
+  --bt-trans-dark: #B7C8FA;
+}
+
+:root[data-accent="petrol"] {
+  --bt-accent-light: #166075;
+  --bt-accent-dark: #61B6CC;
+  --bt-on-accent-light: #FDFEFF;
+  --bt-on-accent-dark: #081F26;
+  --bt-trans-light: #1D5869;
+  --bt-trans-dark: #A4D8E6;
+}
+
+:root[data-accent="brick"] {
+  --bt-accent-light: #A63D33;
+  --bt-accent-dark: #E58076;
+  --bt-on-accent-light: #FFFDFB;
+  --bt-on-accent-dark: #290D0A;
+  --bt-trans-light: #8A352D;
+  --bt-trans-dark: #F0AAA3;
+}
+
+/* Forced Colors Mode (Windows High Contrast) */
+@media (forced-colors: active) {
+  :root {
+    --bt-bg: Canvas;
+    --bt-surface: Canvas;
+    --bt-surface-subtle: Canvas;
+    --bt-border: CanvasText;
+    --bt-border-strong: CanvasText;
+    --bt-text: CanvasText;
+    --bt-text-muted: GrayText;
+    --bt-accent: Highlight;
+    --bt-on-accent: HighlightText;
+    --bt-trans: CanvasText;
+    --bt-shadow: none;
+  }
+}
+
+/* Preserve exact color only on explicit palette swatch dots */
+.bt-swatch-dot {
+  forced-color-adjust: none;
+}
+
+/* Base defaults */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bt-bg);
+  color: var(--bt-text);
+  font-family: var(--bt-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bt-serif {
+  font-family: var(--bt-font-serif);
+}
+
+.bt-mono {
+  font-family: var(--bt-font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid var(--bt-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
